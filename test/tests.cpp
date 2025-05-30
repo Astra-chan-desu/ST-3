@@ -70,7 +70,7 @@ TEST_F(ST3_Strakhov, Timeout1) {
   EXPECT_THROW(testAdapter.Timeout(), std::runtime_error);
 }
 TEST_F(ST3_Strakhov, Timeout2) {
-  DoorTimerAdapter testAdapter(* testDoor);
+  DoorTimerAdapter testAdapter(*testDoor);
   testDoor->unlock();
   testDoor->lock();
   EXPECT_NO_THROW(testAdapter.Timeout(), std::runtime_error);
