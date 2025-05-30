@@ -15,7 +15,7 @@ TimedDoor::TimedDoor(int timeout) : iTimeout(timeout), isOpened(false) {
     adapter = new DoorTimerAdapter(* this);
 }
 
-bool TimedDoor::isDoorOpened() { 
+bool TimedDoor::isDoorOpened() {
     return isOpened;
 }
 
@@ -23,7 +23,7 @@ void TimedDoor::unlock() {
     isOpened = true;
 }
 
-void TimedDoor::lock() { 
+void TimedDoor::lock() {
     isOpened = false;
 }
 
@@ -32,9 +32,9 @@ int TimedDoor::getTimeOut() const {
 }
 
 void TimedDoor::throwState() {
-    if (isOpened) {
+    if (isOpened)
         throw std::runtime_error("opened");
-    } else throw std::runtime_error("closed");
+    else throw std::runtime_error("closed");
 }
 
 void Timer::sleep(int millis) {

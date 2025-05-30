@@ -57,7 +57,6 @@ TEST_F(ST3_Strakhov, lock2) {
 TEST_F(ST3_Strakhov, throwState1) {
     testDoor.unlock();
     EXPECT_THROW(testDoor.throwState(), std::runtime_error);
-
 }
 TEST_F(ST3_Strakhov, throwState2) {
     testDoor.unlock();
@@ -76,7 +75,7 @@ TEST_F(ST3_Strakhov, Timeout2) {
   testDoor->lock();
   EXPECT_NO_THROW(testAdapter.Timeout(), std::runtime_error);
 }
-TEST_F(Test, throwState3) {
+TEST_F(ST3_Strakhov, throwState3) {
   testDoor->unlock();
   std::this_thread::sleep_for(std::chrono::milliseconds(70));
   EXPECT_THROW(testDoor->throwState(), std::runtime_error);
