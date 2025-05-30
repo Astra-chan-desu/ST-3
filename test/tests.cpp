@@ -82,3 +82,5 @@ TEST_F(Test, throwState4) {
   std::this_thread::sleep_for(std::chrono::milliseconds(70));
   EXPECT_NO_THROW(testDoor->throwState(), std::runtime_error);
 }
+//проверки запуститесь
+
