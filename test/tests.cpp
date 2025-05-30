@@ -28,40 +28,40 @@ class  ST3_Strakhov : public::testing::Test {
 };
 
 TEST_F(ST3_Strakhov, startState) {
-    EXPECT_FALSE(testDoor.isDoorOpened());
+    EXPECT_FALSE(testDoor->isDoorOpened());
 }
 
 TEST_F(ST3_Strakhov, unlock1) {
-    testDoor.unlock();
-    EXPECT_TRUE(testDoor.isDoorOpened());
+    testDoor->unlock();
+    EXPECT_TRUE(testDoor->isDoorOpened());
 }
 TEST_F(ST3_Strakhov, unlock2) {
-    testDoor.unlock();
-    testDoor.unlock();
-    EXPECT_TRUE(testDoor.isDoorOpened());
+    testDoor->unlock();
+    testDoor->unlock();
+    EXPECT_TRUE(testDoor->isDoorOpened());
 }
 
 TEST_F(ST3_Strakhov, lock1) {
-    testDoor.unlock();
-    testDoor.lock();
-    EXPECT_FALSE(testDoor.isDoorOpened());
+    testDoor->unlock();
+    testDoor->lock();
+    EXPECT_FALSE(testDoor->isDoorOpened());
 }
 TEST_F(ST3_Strakhov, lock2) {
-    testDoor.unlock();
-    testDoor.lock();
-    testDoor.lock();
-    EXPECT_FALSE(testDoor.isDoorOpened());
+    testDoor->unlock();
+    testDoor->lock();
+    testDoor->lock();
+    EXPECT_FALSE(testDoor->isDoorOpened());
 }
 
 
 TEST_F(ST3_Strakhov, throwState1) {
-    testDoor.unlock();
-    EXPECT_THROW(testDoor.throwState(), std::runtime_error);
+    testDoor->unlock();
+    EXPECT_THROW(testDoor->throwState(), std::runtime_error);
 }
 TEST_F(ST3_Strakhov, throwState2) {
-    testDoor.unlock();
-    testDoor.lock();
-    EXPECT_THROW(testDoor.throwState(), std::runtime_error);
+    testDoor->unlock();
+    testDoor->lock();
+    EXPECT_THROW(testDoor->throwState(), std::runtime_error);
 }
 
 TEST_F(ST3_Strakhov, Timeout1) {
