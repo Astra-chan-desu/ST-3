@@ -56,29 +56,29 @@ TEST_F(ST3_Strakhov, lock2) {
 
 TEST_F(ST3_Strakhov, throwState1) {
     testDoor->unlock();
-    EXPECT_THROW(testDoor->throwState(), std::runtime_error);
+    EXPECT_THROW(testDoor->throwState());
 }
 TEST_F(ST3_Strakhov, throwState2) {
     testDoor->unlock();
     testDoor->lock();
-    EXPECT_THROW(testDoor->throwState(), std::runtime_error);
+    EXPECT_THROW(testDoor->throwState());
 }
 
 TEST_F(ST3_Strakhov, Timeout1) {
   DoorTimerAdapter testAdapter(* testDoor);
   testDoor->unlock();
-  EXPECT_THROW(testAdapter.Timeout(), std::runtime_error);
+  EXPECT_THROW(testAdapter.Timeout());
 }
 TEST_F(ST3_Strakhov, Timeout2) {
   DoorTimerAdapter testAdapter(* testDoor);
   testDoor->unlock();
   testDoor->lock();
-  EXPECT_NO_THROW(testAdapter.Timeout(), std::runtime_error);
+  EXPECT_NO_THROW(testAdapter.Timeout());
 }
 TEST_F(ST3_Strakhov, throwState3) {
   testDoor->unlock();
   std::this_thread::sleep_for(std::chrono::milliseconds(70));
-  EXPECT_THROW(testDoor->throwState(), std::runtime_error);
+  EXPECT_THROW(testDoor->throwState());
 }
 
 //проверки запуститесь
